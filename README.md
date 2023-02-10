@@ -1,4 +1,4 @@
-***************************************Setting up the project*******************************
+*******Setting up the project*********
 
 1. Create a new maven project (make sure jdk id 1.8)
 
@@ -23,7 +23,7 @@
 5. Create a java file under this package (App.java)
 6. Write a simple hello world code. It should run successfully.
 
-**************************************Creating Java producer*******************************************
+**********Creating Java producer************
 
 There are 3 steps in creating a producer:
 1. Create producer properties
@@ -57,13 +57,13 @@ producer.close();
 
 5. Now connect to your kafka zookeper and server and open a consumer which listens to topic 1. When you run App.java now you will see the message appearing in the consumer
 
-*****Producer with callback****
+**********Producer with callback**********
 To understand where the message was produced, partiton no, timestamp, offset etc. 
 In the producer.send function add a callback and print out reqd info
 *Note there is no ordering of messages received in consumer because we are not passing any key*
 *messages are being produced to 2 partitons and are ordered within partition*
 
-****Producer with keys****
+*************Producer with keys***********
 Add topic,key,value instead of topic,value in ProducerRecord
 *ProducerRecord<String,String> record = new ProducerRecord<String,String>(topic,key,value);*
 Use .get() with send to make the send synchronous. **Not to be used in Production at all ***
@@ -72,7 +72,7 @@ Use .get() with send to make the send synchronous. **Not to be used in Productio
 // eg: id 0,1,2,3,5,7,8 -->partition 1
 // eg: id 4,6,9 -->partition 0
 
-**********************************Creating Java Consumer*************************************
+***********Creating Java Consumer*********
 
 1. create consumer configs/properties
 Properties properties = new Properties();
@@ -114,7 +114,7 @@ while(true){
 
 To run multiple consumers start multiple instances of the consumergroup.java. Start prodcuergroup.java. You will notice that each consumer will read specific partitions only. If one oro other consumer goes down then it is rebalanced amongst other consumers.
 
-*******************************Java consumer with threads*******************************************************
+***********Java consumer with threads***************
 1. Go through he ConsumerWithThreads.java code / video for the same
 
 **Assign seek**
